@@ -9,15 +9,19 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show; end
+  def show
+    @user = User.find(params[:id])
+    @events = Event.where( creator_id: @user.id ).all
+  end
 
-  # GET /users/new
+  # ex GET /users/new
+  # Get /signup
   def new
     @user = User.new
   end
 
-  # POST /users
-  # POST /users.json
+  # ex POST /users
+  # post /signup
   def create
     @user = User.new(user_params)
 
@@ -32,8 +36,15 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   def login
     @user = User.new
+  end
+
+  def logout
+    session.destroy
+    redirect_to events_path
   end
 
   def auth
@@ -41,11 +52,11 @@ class UsersController < ApplicationController
 
     if @user.nil?
       flash[:notice] = 'username not Valid'
-      render :login
-
+      redirect_to login_path
     else
       session[:current_user_id] = @user.id
-      render :show
+      flash[:notice] = 'User Logged in'
+      redirect_to user_path(@user)
     end
   end
 

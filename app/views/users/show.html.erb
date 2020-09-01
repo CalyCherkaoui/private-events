@@ -9,3 +9,12 @@
   <strong>Username:</strong>
   <%= @user.username %>
 </p>
+
+<h2> List of <%= @user.username %> creates events: </h2>
+<ul>
+  <% @events.each do |eve| %>
+    <li> Title: <%= eve.title %> Location: <%= eve.location %> </li>
+  <% end %>
+</ul>
+  
+  
