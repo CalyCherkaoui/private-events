@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @events = Event.where( creator_id: @user.id ).all
+    @events = Event.where(creator_id: @user.id).all
   end
 
   # ex GET /users/new
@@ -36,8 +36,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   def login
     @user = User.new
   end
@@ -55,6 +53,8 @@ class UsersController < ApplicationController
       redirect_to login_path
     else
       session[:current_user_id] = @user.id
+      session[:current_username] = @user.username
+      session[:current_user_fullname] = @user.full_name
       flash[:notice] = 'User Logged in'
       redirect_to user_path(@user)
     end
