@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   resources :users, only: %i[show new create]
   get 'login' => 'users#login'
   post 'login' => 'users#auth'
