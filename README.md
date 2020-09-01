@@ -1,24 +1,46 @@
-# README
+# Private events app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this project, we build a site similar to a private Eventbrite which allows users to create events and then manage user signups. Users can create events and send invitations and parties. Events take place at a specific date and at a location (which you can just store as a string, like “Andy’s House”).
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+- Ruby on Rails
+- Ruby.
 
-* System dependencies
+# Getting Started
 
-* Configuration
+To get a local copy of the repository please run the following commands on your terminal:
 
-* Database creation
+```
+$ git clone git@github.com:asiimwedismas/private-events.git
+$ cd private-events
+$ bundle install
+$ yarn install --check-files
+```
 
-* Database initialization
+# Data Models
 
-* How to run the test suite
+- User (name, email, secure_password)
+- Event (Title, description, event_date, location_country, location_city)
 
-* Services (job queues, cache servers, search engines, etc.)
+# Authors
 
-* Deployment instructions
+👤 **Asiimwe Dismas**
 
-* ...
+- Github: [@asiimwedismas](https://github.com/asiimwedismas)
+- Twitter: [@asiimwedismas](https://twitter.com/asiimwedismas)
+- Linkedin: [asiimwedismas](https://www.linkedin.com/in/asiimwedismas/)
+
+👤 **Houda Cherkaoui**
+
+- Github: [@CalyCherkaoui](https://github.com/CalyCherkaoui)
+- Twitter: [@Houda59579688](https://twitter.com/Houda59579688)
+- Linkedin: [Houda-Cherkaoui](https://www.linkedin.com/in/houda-cherkaoui-64106395/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+## Show your support
+
+Give a ⭐️ if you like this project!
