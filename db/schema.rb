@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_09_01_220145) do
 
-# Could not dump table "attendances" because of following StandardError
-#   Unknown type 'resources' for column 'user'
-
   create_table "attendences", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "event_id", null: false
