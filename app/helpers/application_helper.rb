@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def current_user
-    current_user = User.find(session[:current_user_id]) if user_loggedin?
+    User.find(session[:current_user_id]) if user_loggedin?
   end
 end

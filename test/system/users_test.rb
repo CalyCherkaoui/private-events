@@ -22,24 +22,24 @@ class UsersTest < ApplicationSystemTestCase
     click_on 'Back'
   end
 
-  test "updating a User" do
+  test 'updating a User' do
     visit users_url
-    click_on "Edit", match: :first
+    click_on 'Edit', match: :first
 
-    fill_in "Full name", with: @user.full_name
-    fill_in "Username", with: @user.username
-    click_on "Update User"
+    fill_in 'Full name', with: @user.full_name
+    fill_in 'Username', with: @user.username
+    click_on 'Update User'
 
-    assert_text "User was successfully updated"
-    click_on "Back"
+    assert_text 'User was successfully updated'
+    click_on 'Back'
   end
 
-  test "destroying a User" do
+  test 'destroying a User' do
     visit users_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on 'Destroy', match: :first
     end
 
-    assert_text "User was successfully destroyed"
+    assert_text 'User was successfully destroyed'
   end
 end
