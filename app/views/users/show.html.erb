@@ -23,5 +23,21 @@
       <li> Title: <%= event.title %> Location: <%= event.location %> Date: <%= event.event_date %> </li>
     <% end %>
 </ul>
-  
-  
+
+
+<h2>List of Previous events </h2>
+<% @previous_events = @user.attended_events.where('event_date < ?', Time.now).to_a %>
+<% @upcomming_events = @user.attended_events.where('event_date > ?', Time.now).to_a %>
+<ul>
+  <% @previous_events.each do |event| %>
+         <li>Title: <%= event.title %> Location: <%= event.location %> Date: <%= event.event_date %></li>
+  <% end %>
+</ul>
+
+<h2>List of Upcomming events </h2>
+
+<ul>
+  <% @upcomming_events.each do |event| %>
+     <li>Title: <%= event.title %> Location: <%= event.location %> Date: <%= event.event_date %></li>
+  <% end %>
+</ul>

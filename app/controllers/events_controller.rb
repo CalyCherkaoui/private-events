@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    @attendees = @event.attendees
+    @attendees = @event.attendees.to_a
   end
 
   # GET /events/new
@@ -26,8 +26,7 @@ class EventsController < ApplicationController
   #Post / attend
   def attend
     current_user = User.find_by(id: session[:current_user_id])
-    @event = Event.find_by(params[:id])
-    attendees = @event.attendees
+    @event = Event.find(params[:id])
     @event.attendees << current_user
     redirect_to user_path(current_user)
   end
