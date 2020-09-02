@@ -13,6 +13,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @events = Event.where(creator_id: @user.id).all
     @attended_events = @user.attended_events
+    @previous_events = @attended_events.where('event_date < ?', Time.now).to_a
+    @upcomming_events = @attended_events.where('event_date > ?', Time.now).to_a
   end
 
   # ex GET /users/new
