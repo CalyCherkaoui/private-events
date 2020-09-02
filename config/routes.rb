@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'events#index'
   resources :events
   resources :users, only: %i[show new create index]
   get 'login' => 'users#login'
