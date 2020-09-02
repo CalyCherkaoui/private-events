@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   # Post / attend
   def attend
     current_user = User.find_by(id: session[:current_user_id])
-    @event = Event.find(1)
+    @event = Event.find(params[:id])
     @event.attendees << current_user
     redirect_to user_path(current_user)
   end
