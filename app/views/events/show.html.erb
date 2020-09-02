@@ -33,12 +33,12 @@
 </ul>
 
 <% if !already_subscribe? %>
-  <h3> You want to attend this event? </h3>
-  <%= link_to 'Attend Event', {:controller => "events", :action => "attend", :id => @event.id,}, method: :post %>
+  <%= link_to 'Click to attend Event', {:controller => "events", :action => "attend", :id => @event.id,}, method: :post %>
 <% else %>
   <h3> You already subscribed to this event! </h3>
 <% end %>
 
 
+<br>
 <br>
 <%= link_to 'Back', events_path %>

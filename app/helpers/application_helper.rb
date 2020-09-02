@@ -1,15 +1,9 @@
 module ApplicationHelper
-  def login_helper
-    if session[:current_user_id].nil?
-      link_to 'login', login_path
-      link_to 'Signup', signup_path
-    else
-      session[:current_user_fullname]
-      link_to 'log out', logout_path
-    end
-  end
-
   def user_loggedin?
     !session[:current_user_id].nil?
+  end
+
+  def current_user
+    current_user = User.find(session[:current_user_id]) if user_loggedin?
   end
 end
