@@ -10,29 +10,29 @@
   <%= @user.username %>
 </p>
 
-<h2> List of <%= @user.username %> creates events: </h2>
+<h3> List of the past events created by: <%= @user.username %> </h3>
 <ul>
-  <% @events.each do |eve| %>
+  <% @past_events.each do |eve| %>
     <li> Title: <%= eve.title %> Location: <%= eve.location %> </li>
   <% end %>
 </ul>
 
-<h2> List of events attended by <%= @user.username %> : </h2>
+<h3> List of the upcomming events created by: <%= @user.username %> </h3>
 <ul>
-    <% @attended_events.each do |event| %>
-      <li> Title: <%= event.title %> Location: <%= event.location %> Date: <%= event.event_date %> </li>
-    <% end %>
+  <% @future_events.each do |eve| %>
+    <li> Title: <%= eve.title %> Location: <%= eve.location %> </li>
+  <% end %>
 </ul>
+<br><br>
 
-
-<h2>List of Previous events </h2>
+<h2> List of the previous events attended by <%= @user.username %> : </h2>
 <ul>
   <% @previous_events.each do |event| %>
          <li>Title: <%= event.title %> Location: <%= event.location %> Date: <%= event.event_date %></li>
   <% end %>
 </ul>
 
-<h2>List of Upcomming events </h2>
+<h2> List of the previous events that <%= @user.username %> will attend : </h2>
 
 <ul>
   <% @upcomming_events.each do |event| %>
