@@ -28,6 +28,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:current_user_id] = @user.id
+        session[:current_username] = @user.username
+        session[:current_user_fullname] = @user.full_name
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

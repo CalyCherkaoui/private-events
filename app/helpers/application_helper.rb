@@ -8,4 +8,8 @@ module ApplicationHelper
       link_to 'log out', logout_path
     end
   end
+
+  def user_loggedin?
+    !session[:current_user_id].nil?
+  end
 end

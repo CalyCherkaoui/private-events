@@ -21,6 +21,12 @@
   <% end %>
 
   <%= yield %>
+
+  <footer>
+    <br><br>
+    <small><%= link_to 'Events list', events_path %></small> | <small><%= link_to 'Users list', users_path %></small>
+  </footer>
 </body>
+
 
 </html>

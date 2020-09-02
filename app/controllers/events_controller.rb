@@ -23,6 +23,15 @@ class EventsController < ApplicationController
   # def edit
   # end
 
+  #Post / attend
+  def attend
+    current_user = User.find_by(id: session[:current_user_id])
+    @event = Event.find_by(params[:id])
+    attendees = @event.attendees
+    @event.attendees << current_user
+    redirect_to user_path(current_user)
+  end
+
   # POST /events
   # POST /events.json
   def create

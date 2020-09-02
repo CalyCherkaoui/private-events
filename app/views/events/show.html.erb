@@ -25,12 +25,20 @@
   <%= @event.location %>
 </p>
 
-<p> Event Attendees are : </p>
+<h3> Event Attendees are : </h3>
 <ul>
  <% @attendees.each do |attendee| %>
     <li> <%= attendee.full_name %></li>
   <% end %>
 </ul>
+
+<% if !already_subscribe? %>
+  <h3> You want to attend this event? </h3>
+  <%= link_to 'Attend Event', attend_path(@event), method: :post %>
+<% else %>
+  <h3> You already subscribed to this event! </h3>
+<% end %>
+
 
 <br>
 <%= link_to 'Back', events_path %>
