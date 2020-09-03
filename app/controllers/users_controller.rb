@@ -14,9 +14,8 @@ class UsersController < ApplicationController
     @events = Event.where(creator_id: @user.id).all
     @past_events = @events.past
     @future_events = @events.upcoming
-    @attended_events = @user.attended_events
-    @previous_events = @attended_events.where('event_date < ?', Time.now).to_a
-    @upcomming_events = @attended_events.where('event_date > ?', Time.now).to_a
+    @previous_events = @user.attended_events.past
+    @upcomming_events = @user.attended_events.upcoming
   end
 
   # ex GET /users/new
