@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @event.creator.full_name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @event.event_date %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @event.location %>
+</p>
+
+<h3> Event Attendees are : </h3>
+<ul>
+ <% @attendees.each do |attendee| %>
+    <li> <%= attendee.full_name %></li>
+  <% end %>
+</ul>
+
+<% if !already_subscribe? %>
+  <%= link_to 'Click to attend Event', {:controller => "events", :action => "attend", :id => @event.id,}, method: :post %>
+<% else %>
+  <h3> You already subscribed to this event! </h3>
+<% end %>
+
+
+<br>
+<br>
+<%= link_to 'Back', events_path %>
